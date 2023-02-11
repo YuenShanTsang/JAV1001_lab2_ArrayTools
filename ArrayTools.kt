@@ -14,3 +14,23 @@ arrayContains: A function that accepts an array and a search value, and determin
 reverse: A function that reverses an array (gives a new array) (the array can use any data type you want)
 */
 
+
+
+
+fun main(){
+
+//Reverse function    
+    fun reverse(originalArray: Array<Int>): Array<Int> {
+        val reversedList = mutableListOf<Int>()
+        for (i in originalArray.size-1 downTo 0){
+            reversedList.add(originalArray[i])
+        }
+        return reversedList.toTypedArray()
+    }
+
+//Test the reverse function     
+    val originalArray = arrayOf(1, 2, 3, 4, 10)
+    val reversedArray = reverse(originalArray)
+    println(reversedArray.contentToString())
+
+}
