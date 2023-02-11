@@ -16,6 +16,31 @@ reverse: A function that reverses an array (gives a new array) (the array can us
 
 fun main(){
 
+    //Encrypt (Caesar cipher) function
+    fun encrypt(originalMsg: String, shiftValue: Int): String {
+        val alphabet = "abcdefghijklmnopqrstuvwxyz"
+        var encryptedMsg = ""
+        for (char in originalMsg) {
+            if (char.isLetter()) {
+                val shiftedIndex = (alphabet.indexOf(char.lowercaseChar()) + shiftValue) % 26
+                val shiftedChar = alphabet[shiftedIndex].uppercaseChar()
+                encryptedMsg += if (char.isUpperCase()) shiftedChar else shiftedChar.lowercaseChar()
+            } else {
+                encryptedMsg += char
+            }
+        }
+        return encryptedMsg
+    }
+    
+    //Test the encrypt function
+    print("Please enter a message to encrypt: ")
+    val originalMsg = readLine()!!
+    print("Please enter the shift value: ")
+    val shiftValue = readLine()!!.toInt()
+    val encryptedText = encrypt(originalMsg, shiftValue)
+    println("The encrypted message is: $encryptedText")
+
+
     //Array average function
     fun arrayAvg(values: Array<Int>): Double {
         var total = 0.0
@@ -29,6 +54,7 @@ fun main(){
     val values = arrayOf(1, 2, 3, 4, 10)
     val average = arrayAvg(values)
     println("The average of all values = $average")
+
 
     //Array contains function
     fun arrayContains(array: Array<Int>, searchValue: Int): Boolean {
@@ -44,6 +70,7 @@ fun main(){
     val array = arrayOf(1, 2, 3, 4, 10)
     val searchValue = 10
     println(arrayContains(array, searchValue))
+
 
     //Reverse function    
     fun reverse(originalArray: Array<Int>): Array<Int> {
