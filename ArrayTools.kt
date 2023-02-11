@@ -16,6 +16,20 @@ reverse: A function that reverses an array (gives a new array) (the array can us
 
 fun main(){
 
+    //Array average function
+    fun arrayAvg(values: Array<Int>): Double {
+        var total = 0.0
+        for (value in values) {
+            total += value
+        }
+        return total / values.size
+    }
+    
+    //Test the array average function
+    val values = arrayOf(1, 2, 3, 4, 10)
+    val average = arrayAvg(values)
+    println("The average of all values = $average")
+
     //Array contains function
     fun arrayContains(array: Array<Int>, searchValue: Int): Boolean {
         for (element in array) {
