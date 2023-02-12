@@ -22,10 +22,14 @@ fun main(){
         var encryptedMsg = ""
         for (char in originalMsg) {
             if (char.isLetter()) {
+                //Add the shift value to the current letter by using the index
                 val shiftedIndex = (alphabet.indexOf(char.lowercaseChar()) + shiftValue) % 26
                 val shiftedChar = alphabet[shiftedIndex].uppercaseChar()
+                
+                //Handle uppercase and lowercase
                 encryptedMsg += if (char.isUpperCase()) shiftedChar else shiftedChar.lowercaseChar()
             } else {
+                //If the character is not a letter just add to the string without changes
                 encryptedMsg += char
             }
         }
@@ -33,10 +37,13 @@ fun main(){
     }
     
     //Test the encrypt function
+    //Collect message and shift value from user
     print("Please enter a message to encrypt: ")
     val originalMsg = readLine()!!
     print("Please enter the shift value: ")
     val shiftValue = readLine()!!.toInt()
+
+    //Call the function
     val encryptedText = encrypt(originalMsg, shiftValue)
     println("The encrypted message is: $encryptedText")
 
@@ -44,9 +51,12 @@ fun main(){
     //Array average function
     fun arrayAvg(values: Array<Int>): Double {
         var total = 0.0
+        
+        //Loop through the array to sum all the values
         for (value in values) {
             total += value
         }
+        //To calculate average number
         return total / values.size
     }
     
@@ -58,7 +68,9 @@ fun main(){
 
     //Array contains function
     fun arrayContains(array: Array<Int>, searchValue: Int): Boolean {
+
         for (element in array) {
+            //Return true if the value in array equal to the search value
             if (element == searchValue) {
                 return true
             }
@@ -74,10 +86,15 @@ fun main(){
 
     //Reverse function    
     fun reverse(originalArray: Array<Int>): Array<Int> {
+        //Store the reversed order list of integers
         val reversedList = mutableListOf<Int>()
+        
+        //Add the elements of an array in reverse order to a list
         for (i in originalArray.size-1 downTo 0){
             reversedList.add(originalArray[i])
         }
+
+        //Change the list back to array
         return reversedList.toTypedArray()
     }
 
