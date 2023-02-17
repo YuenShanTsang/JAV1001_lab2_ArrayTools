@@ -24,10 +24,10 @@ fun main(){
             if (char.isLetter()) {
                 //Add the shift value to the current letter by using the index
                 val shiftedIndex = (alphabet.indexOf(char.lowercaseChar()) + shiftValue) % 26
-                val shiftedChar = alphabet[shiftedIndex].uppercaseChar()
+                val shiftedChar = alphabet[shiftedIndex]
                 
-                //Handle uppercase and lowercase
-                encryptedMsg += if (char.isUpperCase()) shiftedChar else shiftedChar.lowercaseChar()
+                //Handle uppercase
+                encryptedMsg += if (char.isUpperCase()) shiftedChar.uppercaseChar() else shiftedChar
             } else {
                 //If the character is not a letter just add to the string without changes
                 encryptedMsg += char
